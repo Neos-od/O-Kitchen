@@ -20,9 +20,9 @@
 
 ### 🛠️ 사용 기술
 
-![My Skills](https://skillicons.dev/icons?i=js,html,css,github,vercel)
+![My Skills](https://skillicons.dev/icons?i=js,html,css,github)
 
-<img src="https://img.shields.io/badge/Javascript-f7df1e?style=flat-square&logo=Javascript&logoColor=000000"/> <img src="https://img.shields.io/badge/HTML5-F05032?style=flat-square&logo=HTML5&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/CSS3-007ACC?style=flat-square&logo=CSS3&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/vercel-F2F2F2?style=flat-square&logo=vercel&logoColor=000000"/> <img src="https://img.shields.io/badge/Respond web -302683?style=flat-square&logo=htmlacademy&logoColor=FFFFFF"/>
+<img src="https://img.shields.io/badge/Javascript-f7df1e?style=flat-square&logo=Javascript&logoColor=000000"/> <img src="https://img.shields.io/badge/HTML5-F05032?style=flat-square&logo=HTML5&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/CSS3-007ACC?style=flat-square&logo=CSS3&logoColor=FFFFFF"/> <img src="https://img.shields.io/badge/GitHub-000000?style=flat-square&logo=github&logoColor=FFFFFF"/>  <img src="https://img.shields.io/badge/Respond web -302683?style=flat-square&logo=htmlacademy&logoColor=FFFFFF"/>
 
 </br>
 
@@ -55,7 +55,7 @@ tab.addEventListener("click", function(e) {
 
 </br>
 
-### ☂ 1. 모바일 메뉴 닫기
+### ☂ 2. 모바일 메뉴 닫기
 기능
 -
 dim 영역 클릭 시 모바일 메뉴를 닫습니다.
@@ -79,75 +79,122 @@ dim.addEventListener("click", function() {
 
 </br>
 
-### ☂ 3. 스크롤 이벤트 처리
-- 사용자가 스크롤할 때 헤더의 고정 상태를 조정합니다.
-- 스크롤 위치가 0보다 크면 헤더에 fixed 클래스를 추가하고,
-- 최상단일 경우 클래스를 제거합니다.
+### ☂ 3. 닫기 버튼 클릭 시 메뉴 닫기
+기능
+-
+닫기 버튼 클릭 시 모바일 메뉴를 닫습니다.
 
-<img src="images/heder.fixed.png" width="100%" alt="스크롤 이벤트 처리">
+작동 방식
+-
+위와 동일하게 메뉴와 dim 효과를 비활성화합니다.
+
 
  ``` JavaScript
-	window.addEventListener("scroll", function(){
-		if(window.scrollY > 0){
-			header.classList.add("fixed");
-		}
-		else{
-			header.classList.remove("fixed");
-		}
-	});
+closeBtn.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    document.body.classList.remove("fixed");
+    mobile.classList.remove("active");
+    dim.classList.remove("active");
+});
 ```
 
 ---
 
 </br>
 
-### ☂ 4. 탭 클릭 이벤트
-- 탭을 클릭할 때 기본 동작을 방지하고,
-- 모바일 뷰일 경우 탭의 상태를 변경하여 메뉴를 열거나 닫습니다.
-- 탭 클릭 시 관련 클래스를 추가하거나 제거합니다.
+</br>
 
-<img src="images/mobile_tab.gif" width="320px" alt="탭 클릭 이벤트">
+### ☂ 4. 메인 슬라이더 초기화
+기능
+-
+메인 슬라이더를 초기화하여 이미지 슬라이드를 제공합니다.
+
+설정
+-
+navigation: 이전 및 다음 버튼 설정. <br>
+pagination: 분수 형태의 페이지네이션 설정. <br>
+
 
  ``` JavaScript
-	let topPos=0;
-
-	tab.addEventListener("click", function(e){
-		e.preventDefault();
-		if(isMobile == true){
-			if(tab.classList.contains("close") == false){
-				tab.classList.add("close");
-				gnb.classList.add("active");
-				dim.classList.add("active");
-			}
-			else{
-				tab.classList.remove("close");
-				gnb.classList.remove("active");
-				dim.classList.remove("active");
-			}
-		}
-	});
+const mainSwiper = new Swiper("#main_slider .swiper-container", {
+    navigation: {
+        prevEl: "#main_slider .swiper-button-prev",
+        nextEl: "#main_slider .swiper-button-next"
+    },
+    pagination: {
+        el: "#main_slider .swiper-pagination",
+        type: "fraction"
+    }
+});
 ```
 
 ---
 
 </br>
 
-### ☂ 5. 메뉴 항목 클릭 이벤트
-- 메뉴 항목 클릭 시 해당 섹션으로 부드럽게 스크롤 애니메이션을 진행합니다. 
-- 스크롤이 완료되면 탭과 내비게이션 바의 상태를 초기화합니다.
+### ☂ 5. 서브 슬라이더 초기화
+기능
+-
+서브 슬라이더를 초기화하여 다양한 레시피를 표시합니다.
+
+설정
+-
+slidesPerView: 기본적으로 1.5개 슬라이드 표시. <br>
+spaceBetween: 슬라이드 간의 간격 설정. <br>
+breakpoints: 화면 크기에 따라 슬라이드 수 조정. <br>
+
 
  ``` JavaScript
-	menuList.forEach(function(item, i){
-		menuList[i].addEventListener("click", function(e){
-			e.preventDefault();
-			topPos=pageList[i].offsetTop;
-			gsap.to(window, { scrollTo: topPos, duration: 0.4, onComplete: function(){
-				tab.classList.remove("close");
-				gnb.classList.remove("active");
-				dim.classList.remove("active");
-			}});
-		});
-	});
+const subSwiper = new Swiper("#sub_slider .swiper-container", {
+    slidesPerView: 1.5,
+    spaceBetween: 10,
+    breakpoints: {
+        640: {
+            slidesPerView: 3.5,
+            spaceBetween: 5
+        }
+    }
+});
+```
+
+---
+
+</br>
+
+### ☂ 6. 지도 초기화
+기능
+-
+Google Maps API를 사용하여 특정 위치를 표시하는 지도를 초기화합니다.
+
+설정
+-
+myLatLng: 마커가 표시될 위치의 위도 및 경도. <br>
+new google.maps.Map(...): 지도 객체를 생성하고 설정합니다. <br>
+google.maps.Marker(...): 마커를 추가하여 회사 위치를 표시합니다. <br>
+
+
+ ``` JavaScript
+let map;
+
+function initMap() {
+    let myLatLng = {lat: 37.390141551118695, lng: 126.97151846772532};
+
+    let map = new google.maps.Map(document.getElementById("map"), {
+        center: myLatLng,
+        zoom: 16,
+        mapTypeControl: false,
+        zoomControl: false,
+        fullscreenControl: false,
+        rotateControl: false
+    });
+
+    let marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: "(주)오뚜기"
+    });
+}
 ```
 
 ---
@@ -160,26 +207,7 @@ dim.addEventListener("click", function() {
 |------------------|------------|-------------|
 | ![](images/mobile_slider.png) | ![](images/mobile_menu.png) | ![](images/mobile_history.png) |
 
-
-| 챔피언스컵 위너 | 발롱도르 위너 | 비지니스 구축 |
-|------------------|------------|-------------|
-| ![](images/mobile_champs.png) | ![](images/mobile_winners.png) | ![](images/mobile_business.png) |
-
 </br>
-
-### 🧾 Review
-
-사이트 특징<br>
-|---------------------|
-탐색 용이성: 메뉴가 잘 구성되어 있어 사용자가 원하는 정보를 쉽게 찾을 수 있습니다.
-모바일 최적화: 다양한 디바이스에서 접근할 수 있도록 반응형 디자인이 적용되었습니다.
-빠른 로딩 속도: 사이트의 로딩 속도가 빠르며, 사용자에게 긍정적인 경험을 제공합니다.
-상호작용 요소: 소셜 미디어 연동 등 팬과의 상호작용을 촉진하는 요소가 포함되어 있습니다.
-
-</br>
-
-
-이 프로젝트는 AC 밀란의 공식 웹사이트를 기반으로 하여<br> 클럽의 브랜드 아이덴티티를 반영한 사용자 친화적인 디자인을 제공합니다.
 
 ### 🧾 View
-https://ac-milan-custom-site.vercel.app/
+
