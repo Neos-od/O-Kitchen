@@ -45,6 +45,7 @@ document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다. <b
 mobile.classList.add("active"): 모바일 메뉴를 표시합니다. <br>
 dim.classList.add("active"): dim 효과를 적용합니다.
 
+<img src="images/heder.fixed.png" width="100%" alt="이미지">
 
  ``` JavaScript
 tab.addEventListener("click", function(e) {
@@ -71,6 +72,7 @@ document.body.classList.remove("fixed"): 페이지 스크롤을 다시 활성화
 mobile.classList.remove("active"): 모바일 메뉴를 숨깁니다. <br>
 dim.classList.remove("active"): dim 효과를 제거합니다. <br>
 
+<img src="images/heder.fixed.png" width="100%" alt="이미지">
 
  ``` JavaScript
 dim.addEventListener("click", function() {
@@ -93,6 +95,7 @@ dim.addEventListener("click", function() {
 -
 위와 동일하게 메뉴와 dim 효과를 비활성화합니다.
 
+<img src="images/heder.fixed.png" width="100%" alt="스크롤 이벤트 처리">
 
  ``` JavaScript
 closeBtn.addEventListener("click", function(e) {
@@ -120,6 +123,7 @@ closeBtn.addEventListener("click", function(e) {
 navigation: 이전 및 다음 버튼 설정. <br>
 pagination: 분수 형태의 페이지네이션 설정. <br>
 
+<img src="images/heder.fixed.png" width="100%" alt="스크롤 이벤트 처리">
 
  ``` JavaScript
 const mainSwiper = new Swiper("#main_slider .swiper-container", {
@@ -149,6 +153,7 @@ slidesPerView: 기본적으로 1.5개 슬라이드 표시. <br>
 spaceBetween: 슬라이드 간의 간격 설정. <br>
 breakpoints: 화면 크기에 따라 슬라이드 수 조정. <br>
 
+<img src="images/heder.fixed.png" width="100%" alt="스크롤 이벤트 처리">
 
  ``` JavaScript
 const subSwiper = new Swiper("#sub_slider .swiper-container", {
@@ -178,6 +183,7 @@ myLatLng: 마커가 표시될 위치의 위도 및 경도. <br>
 new google.maps.Map(...): 지도 객체를 생성하고 설정합니다. <br>
 google.maps.Marker(...): 마커를 추가하여 회사 위치를 표시합니다. <br>
 
+<img src="images/heder.fixed.png" width="100%" alt="스크롤 이벤트 처리">
 
  ``` JavaScript
 let map;
