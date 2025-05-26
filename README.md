@@ -29,12 +29,12 @@
 ### ⚙️ 기능 상세 설명
 
 ### ☂ 1. 모바일 메뉴
-기능: 탭 버튼 클릭 시 모바일 메뉴를 열고 배경 dim 효과를 활성화합니다.
-작동 방식:
-e.preventDefault(): 기본 클릭 동작을 방지합니다.
-document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다.
-mobile.classList.add("active"): 모바일 메뉴를 표시합니다.
-dim.classList.add("active"): dim 효과를 적용합니다.
+* 기능: 탭 버튼 클릭 시 모바일 메뉴를 열고 배경 dim 효과를 활성화합니다.
+* 작동 방식:
+* e.preventDefault(): 기본 클릭 동작을 방지합니다.
+* document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다.
+* mobile.classList.add("active"): 모바일 메뉴를 표시합니다.
+* dim.classList.add("active"): dim 효과를 적용합니다.
 
 
  ``` JavaScript
