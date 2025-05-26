@@ -28,7 +28,7 @@
 
 ### ⚙️ 기능 상세 설명
 
-### ☂ 1. 모바일 메뉴
+### ☂ 1. 모바일 메뉴 열기
 기능
 -
 탭 버튼 클릭 시 모바일 메뉴를 열고 배경 dim 효과를 활성화합니다.
@@ -55,18 +55,26 @@ tab.addEventListener("click", function(e) {
 
 </br>
 
-### ☂ 2. 초기화 및 섹션 리스트 설정
-- 페이지 로드 시 signature ID를 제외한 섹션을 pageList 배열에 추가하여 
-- 나중에 사용할 섹션 리스트를 준비합니다.
+### ☂ 1. 모바일 메뉴 닫기
+기능
+-
+dim 영역 클릭 시 모바일 메뉴를 닫습니다.
 
-``` JavaScript
-	window.dispatchEvent(new Event('resize'));
-	sectionList.forEach(function(item){
-		if(item.getAttribute("id")!= "signature"){
-			pageList.push(item);
-		}
-	});
+작동 방식
+-
+document.body.classList.remove("fixed"): 페이지 스크롤을 다시 활성화합니다. <br>
+mobile.classList.remove("active"): 모바일 메뉴를 숨깁니다. <br>
+dim.classList.remove("active"): dim 효과를 제거합니다. <br>
+
+
+ ``` JavaScript
+dim.addEventListener("click", function() {
+    document.body.classList.remove("fixed");
+    mobile.classList.remove("active");
+    dim.classList.remove("active");
+});
 ```
+
 ---
 
 </br>
