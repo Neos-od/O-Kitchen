@@ -35,9 +35,9 @@
 
 작동 방식
 -
-e.preventDefault(): 기본 클릭 동작을 방지합니다.
-document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다.
-mobile.classList.add("active"): 모바일 메뉴를 표시합니다.
+e.preventDefault(): 기본 클릭 동작을 방지합니다. <br>
+document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다. <br>
+mobile.classList.add("active"): 모바일 메뉴를 표시합니다. <br>
 dim.classList.add("active"): dim 효과를 적용합니다.
 
 
