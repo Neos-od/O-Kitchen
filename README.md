@@ -28,34 +28,30 @@
 
 ### ⚙️ 기능 상세 설명
 
-### 📌 1. 리사이즈 이벤트 처리
-- 창 크기가 변경될 때 모바일과 데스크탑 뷰를 판단합니다. 
-- 모바일 뷰일 경우 관련 클래스를 추가하고, 
-- 데스크탑 뷰일 경우 클래스를 제거하여 레이아웃을 조정합니다.
+### ☂ 1. 모바일 메뉴
+기능: 탭 버튼 클릭 시 모바일 메뉴를 열고 배경 dim 효과를 활성화합니다.
+작동 방식:
+e.preventDefault(): 기본 클릭 동작을 방지합니다.
+document.body.classList.add("fixed"): 페이지 스크롤을 고정합니다.
+mobile.classList.add("active"): 모바일 메뉴를 표시합니다.
+dim.classList.add("active"): dim 효과를 적용합니다.
+
 
  ``` JavaScript
-	window.addEventListener("resize", function(){
-		if(window.innerWidth > 720){
-			if(isMobile != false){
-				isMobile=false;
-				tab.classList.remove("close");
-				gnb.classList.remove("active");
-				dim.classList.remove("active");
-			}	
-		}
-		else{
-			if(isMobile != true){
-				isMobile=true;
-			}
-		}
-	});
+tab.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    document.body.classList.add("fixed");
+    mobile.classList.add("active");
+    dim.classList.add("active");
+});
 ```
 
 ---
 
 </br>
 
-### 📌 2. 초기화 및 섹션 리스트 설정
+### ☂ 2. 초기화 및 섹션 리스트 설정
 - 페이지 로드 시 signature ID를 제외한 섹션을 pageList 배열에 추가하여 
 - 나중에 사용할 섹션 리스트를 준비합니다.
 
@@ -71,7 +67,7 @@
 
 </br>
 
-### 📌 3. 스크롤 이벤트 처리
+### ☂ 3. 스크롤 이벤트 처리
 - 사용자가 스크롤할 때 헤더의 고정 상태를 조정합니다.
 - 스크롤 위치가 0보다 크면 헤더에 fixed 클래스를 추가하고,
 - 최상단일 경우 클래스를 제거합니다.
@@ -93,7 +89,7 @@
 
 </br>
 
-### 📌 4. 탭 클릭 이벤트
+### ☂ 4. 탭 클릭 이벤트
 - 탭을 클릭할 때 기본 동작을 방지하고,
 - 모바일 뷰일 경우 탭의 상태를 변경하여 메뉴를 열거나 닫습니다.
 - 탭 클릭 시 관련 클래스를 추가하거나 제거합니다.
@@ -124,7 +120,7 @@
 
 </br>
 
-### 📌 5. 메뉴 항목 클릭 이벤트
+### ☂ 5. 메뉴 항목 클릭 이벤트
 - 메뉴 항목 클릭 시 해당 섹션으로 부드럽게 스크롤 애니메이션을 진행합니다. 
 - 스크롤이 완료되면 탭과 내비게이션 바의 상태를 초기화합니다.
 
