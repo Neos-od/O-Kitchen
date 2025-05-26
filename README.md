@@ -123,7 +123,7 @@ closeBtn.addEventListener("click", function(e) {
 navigation: 이전 및 다음 버튼 설정. <br>
 pagination: 분수 형태의 페이지네이션 설정. <br>
 
-<img src="images/mobile_main-slider.gif" width="250px" height="300px" alt="main-slider">
+<img src="images/mobile_main-slider.gif" width="250px" height="" alt="main-slider">
 
  ``` JavaScript
 const mainSwiper = new Swiper("#main_slider .swiper-container", {
@@ -153,7 +153,7 @@ slidesPerView: 기본적으로 1.5개 슬라이드 표시. <br>
 spaceBetween: 슬라이드 간의 간격 설정. <br>
 breakpoints: 화면 크기에 따라 슬라이드 수 조정. <br>
 
-<img src="images/mobile_sub-slider.gif" width="250px" height="350px" alt="스크롤 이벤트 처리">
+<img src="images/mobile_sub-slider.gif" width="250px" height="" alt="스크롤 이벤트 처리">
 
  ``` JavaScript
 const subSwiper = new Swiper("#sub_slider .swiper-container", {
@@ -183,7 +183,7 @@ myLatLng: 마커가 표시될 위치의 위도 및 경도. <br>
 new google.maps.Map(...): 지도 객체를 생성하고 설정합니다. <br>
 google.maps.Marker(...): 마커를 추가하여 회사 위치를 표시합니다. <br>
 
-<img src="images/mobile_map.gif" width="250px" height="350px" alt="map">
+<img src="images/mobile_map.gif" width="250px" height="" alt="map">
 
  ``` JavaScript
 let map;
